@@ -35,32 +35,41 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Barlang) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nev)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hossz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kiterjedes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Melyseg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Magassag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telepules)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Barlang)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nev)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hossz)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kiterjedes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Melyseg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Magassag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telepules)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
+<form method="get">
+    <label for="searchCity">Település:</label>
+    <input type="text" id="searchCity" name="searchCity" value="@Model.CurrentFilter" />
+
+    <button type="submit">Szűrés</button>
+</form>
